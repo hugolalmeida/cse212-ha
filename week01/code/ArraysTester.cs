@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public static class ArraysTester {
     /// <summary>
     /// Entry point for the tests
@@ -39,7 +41,16 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+        //Create a new Array to store the quantity of numbers in the array
+        double[] numbers = new double[length];
+
+        // Generate the numbers and add it to the array
+        for (int i = 0; i < length; i++){
+            // adding the multiples to array
+            numbers[i] = number * (i + 1);
+        }
+        // return the array
+        return numbers; // replace this return statement with your own
     }
     
     /// <summary>
@@ -57,5 +68,16 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        // calculate the effective rotation amount
+        int effectiveAmount = amount % data.Count;
+
+         // Get the sliced portion of the list from (data.Count - effectiveAmount) to the end
+        List<int> rotatedPart = data.GetRange(data.Count - effectiveAmount, effectiveAmount);
+
+        // Remove the sliced portion from the original list
+        data.RemoveRange(data.Count - effectiveAmount, effectiveAmount);
+
+        // Insert the sliced portion at the beginning of the original list
+        data.InsertRange(0, rotatedPart);
     }
 }
