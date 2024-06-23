@@ -11,6 +11,7 @@
     public void Enqueue(string value, int priority) {
         var newNode = new PriorityItem(value, priority);
         _queue.Add(newNode);
+        Console.WriteLine(newNode);
     }
 
     public String Dequeue() {

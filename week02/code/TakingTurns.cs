@@ -15,7 +15,7 @@
         // Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
-        // Defect(s) Found: 
+        // Defect(s) Found: The recent person added is being added as first when they should be added as the last one
 
         Console.WriteLine("---------");
 
@@ -38,7 +38,7 @@
         while (players.Length > 0)
             players.GetNextPerson();
 
-        // Defect(s) Found: 
+        // Defect(s) Found: The recent person added is being added as first when they should be added as the last one
 
         Console.WriteLine("---------");
 
@@ -56,7 +56,7 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: the infinit turn is not working and it is count as a turn then no more turns
 
         Console.WriteLine("---------");
 
@@ -73,7 +73,7 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: the infinit turn is not working and it is count as a turn then no more turns
 
         Console.WriteLine("---------");
 
@@ -83,6 +83,6 @@
         Console.WriteLine("Test 5");
         players = new TakingTurnsQueue();
         players.GetNextPerson();
-        // Defect(s) Found:
+        // Defect(s) Found: It is working
     }
 }
