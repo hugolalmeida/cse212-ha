@@ -3,7 +3,7 @@
         // TODO Problem 2 - Write and run test cases and fix the code to match requirements
         // Example of creating and using the priority queue
         var priorityQueue = new PriorityQueue();
-        Console.WriteLine("Still Working on Dequeue Cases");
+        // Console.WriteLine("Still Working on Dequeue Cases");
 
         // Test Cases
 
@@ -11,7 +11,6 @@
         // Scenario: Add 4 itens(ring, 4),(necklace, 3), (watch, 4), (robe, 2) with being 2 of them with the same priority and then the folowing with differents prioritys then delete the highest priority in the queue
         // Expected Result: Ring, Necklace, Watch
         Console.WriteLine("Test 1");
-        priorityQueue.Dequeue(); //Testing the empty queue message, I will delete this after
         priorityQueue.Enqueue("Ring", 4);
         priorityQueue.Enqueue("Necklace", 3);
         priorityQueue.Enqueue("Watch", 4);
@@ -28,6 +27,7 @@
         // Expected Result:  Necklace
         Console.WriteLine("Test 2");
         priorityQueue.Dequeue();
+        priorityQueue.Dequeue();
         Console.WriteLine(priorityQueue);
 
         // Defect(s) Found: It is not removing both of the list
@@ -42,7 +42,7 @@
         priorityQueue.Dequeue();
         Console.WriteLine(priorityQueue);
 
-        // Defect(s) Found: It is workin
+        // Defect(s) Found: It is working
 
         Console.WriteLine("---------");
 
@@ -51,9 +51,8 @@
         // Expected Result:  The queue is empty. []
         Console.WriteLine("Test 4");
         priorityQueue.Dequeue();
-        Console.WriteLine(priorityQueue);
 
-        // Defect(s) Found: It is workin
+        // Defect(s) Found: It is working
 
         Console.WriteLine("---------");
 
