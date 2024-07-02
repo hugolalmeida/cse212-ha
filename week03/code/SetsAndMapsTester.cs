@@ -111,6 +111,27 @@ public static class SetsAndMapsTester {
         // To display the pair correctly use something like:
         // Console.WriteLine($"{word} & {pair}");
         // Each pair of words should displayed on its own line.
+    HashSet<string> wordSet = new HashSet<string>();
+
+    // Loop through each word in the list
+    foreach (string word in words) {
+        // If the word has two identical letters (e.g., "aa"), skip it
+        if (word[0] == word[1]) {
+            continue;
+        }
+
+        // Generate the symmetric word (e.g., "ma" for "am")
+        string symmetricWord = new string(new char[] { word[1], word[0] });
+
+        // Check if the symmetric word is already in the set
+        if (wordSet.Contains(symmetricWord)) {
+            // Display the pair
+            Console.WriteLine($"{word} & {symmetricWord}");
+        }
+
+        // Add the word to the set
+        wordSet.Add(word);
+    }
     }
 
     /// <summary>
@@ -132,6 +153,16 @@ public static class SetsAndMapsTester {
         foreach (var line in File.ReadLines(filename)) {
             var fields = line.Split(",");
             // Todo Problem 2 - ADD YOUR CODE HERE
+
+            if (fields.Length > 3) {
+            var degree = fields[3].Trim();
+
+            if (degrees.ContainsKey(degree)) {
+                degrees[degree]++;
+            } else {
+                degrees[degree] = 1;
+            }
+        }
         }
 
         return degrees;
@@ -158,7 +189,45 @@ public static class SetsAndMapsTester {
     /// #############
     private static bool IsAnagram(string word1, string word2) {
         // Todo Problem 3 - ADD YOUR CODE HERE
+        // Normalize the words: remove spaces and convert to lower case
+    word1 = word1.Replace(" ", "").ToLower();
+    word2 = word2.Replace(" ", "").ToLower();
+
+    // If the lengths of the normalized words are different, they cannot be anagrams
+    if (word1.Length != word2.Length) {
         return false;
+    }
+
+    // Create dictionaries to count the occurrences of each letter
+    var charCount1 = new Dictionary<char, int>();
+    var charCount2 = new Dictionary<char, int>();
+
+    // Count characters in word1
+    foreach (char c in word1) {
+        if (charCount1.ContainsKey(c)) {
+            charCount1[c]++;
+        } else {
+            charCount1[c] = 1;
+        }
+    }
+
+    // Count characters in word2
+    foreach (char c in word2) {
+        if (charCount2.ContainsKey(c)) {
+            charCount2[c]++;
+        } else {
+            charCount2[c] = 1;
+        }
+    }
+
+    // Compare the two dictionaries
+    foreach (var kvp in charCount1) {
+        if (!charCount2.ContainsKey(kvp.Key) || charCount2[kvp.Key] != kvp.Value) {
+            return false;
+        }
+    }
+
+    return true;
     }
 
     /// <summary>
@@ -235,5 +304,17 @@ public static class SetsAndMapsTester {
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to print out each place a earthquake has happened today and its magitude.
+        if (featureCollection != null && featureCollection.Features != null)
+            {
+                foreach (var feature in featureCollection.Features)
+                {
+                    Console.WriteLine($"{feature.Properties.Place} - Mag {feature.Properties.Mag:F2}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No earthquake data found.");
+            }
+        
     }
 }

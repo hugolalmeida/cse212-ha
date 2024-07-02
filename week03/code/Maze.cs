@@ -20,7 +20,7 @@ public class Maze {
     private int _currY = 1;
 
     public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap) {
-        _mazeMap = mazeMap;
+        _mazeMap = mazeMap; 
     }
 
     // Todo Maze Problem - ADD YOUR CODE HERE
@@ -30,6 +30,15 @@ public class Maze {
     /// </summary>
     public void MoveLeft() {
         // FILL IN CODE
+        if (_mazeMap[(_currX, _currY)][0])
+        {
+            _currY -= 1;
+            ShowStatus();
+        }
+        else
+        {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -38,6 +47,15 @@ public class Maze {
     /// </summary>
     public void MoveRight() {
         // FILL IN CODE
+        if (_mazeMap[(_currX, _currY)][1])
+        {
+            _currY += 1;
+            ShowStatus();
+        }
+        else
+        {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -46,6 +64,15 @@ public class Maze {
     /// </summary>
     public void MoveUp() {
         // FILL IN CODE
+        if (_mazeMap[(_currX, _currY)][2])
+        {
+            _currX -= 1;
+            ShowStatus();
+        }
+        else
+        {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -54,6 +81,15 @@ public class Maze {
     /// </summary>
     public void MoveDown() {
         // FILL IN CODE
+        if (_mazeMap[(_currX, _currY)][3])
+        {
+            _currX += 1;
+            ShowStatus();
+        }
+        else
+        {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     public void ShowStatus() {
