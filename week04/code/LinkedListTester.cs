@@ -71,6 +71,23 @@ public static class LinkedListTester {
 
 
         Console.WriteLine("\n=========== PROBLEM 5 TESTS ===========");
+//         LinkedList myLinkedList = new LinkedList();
+//             myLinkedList.InsertTail(4);
+//             myLinkedList.InsertTail(35);
+//             myLinkedList.InsertTail(2);
+//             myLinkedList.InsertTail(2);
+//           Console.WriteLine("\n=========== NORMAL LIST ===========");
+//         foreach(var item in myLinkedList)
+// {
+//     Console.WriteLine(item);
+// }
+
+//   Console.WriteLine("\n=========== REVERSE LIST ===========");
+//   foreach(var item in myLinkedList.Reverse())
+// {
+//     Console.WriteLine(item);
+// }
+        
         Console.WriteLine(ll.Reverse().AsString()); // <IEnumerable>[10, 10, 35, 100}
     }
 }
